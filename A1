@@ -1,0 +1,23 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var frequencySort = function(s) {
+    //turn s to string
+    var s =[...s];
+    var hash={};
+    
+    //store letter
+    s.forEach(x=>{
+        hash[x]?hash[x]++:hash[x]=1;
+    })
+    
+    //get the letter with number order
+    var newarr = Object.keys(hash).sort((a,b)=>hash[b]-hash[a]);
+    let result = "";
+    for(let x of newarr){
+        result += x.repeat(hash[x]);
+    }
+    return result;
+
+};
